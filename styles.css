@@ -1,3 +1,4 @@
+/* General styles */
 body {
   margin: 0;
   padding: 0;
@@ -5,8 +6,7 @@ body {
   background-color: #f0f0f0;
 }
 
-
-
+/* App bar styles */
 .app-bar {
   position: fixed;
   bottom: 0;
@@ -61,6 +61,7 @@ body {
   font-size: 18px;
 }
 
+/* Enhanced settings panel styles */
 .settings-panel {
   position: fixed;
   top: 20%;
@@ -69,18 +70,69 @@ body {
   background-color: white;
   padding: 20px;
   border: 1px solid #ccc;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   display: none;
   z-index: 1000;
+  border-radius: 10px;
 }
 
 .settings-panel h2 {
   margin-top: 0;
+  color: #333;
+  font-size: 24px;
+  text-align: center;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
 }
 
 .setting-item {
   margin-bottom: 15px;
 }
+
+.setting-item label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+  font-size: 16px;
+}
+
+.setting-item input,
+.setting-item select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.setting-item input:focus,
+.setting-item select:focus {
+  border-color: #333;
+  outline: none;
+}
+
+.settings-panel .button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.settings-panel button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.settings-panel button:hover {
+  background-color: #555;
+}
+
+/* App panel styles */
 .app-panel {
   position: fixed;
   top: 10%;
@@ -118,12 +170,8 @@ body {
   height: calc(100% - 30px); /* Adjust for header height */
   border: none;
 }
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
 
+/* Popup styles */
 .popup {
   display: none;
   position: fixed;
@@ -162,80 +210,69 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
-/* styles.css */
-.app-panel {
-    display: none;
-    /* Add your existing styles for app panels */
+
+/* Shop item styles */
+.shop-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.app-panel.maximized {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    /* Add additional styles for maximized state if needed */
-}
-/* Add this to your styles.css */
-.shop-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+.shop-item:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .shop-item i {
-    margin-right: 10px;
+  margin-right: 15px;
+  font-size: 24px;
+  color: #666;
 }
 
 .shop-item button {
-    margin-left: auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.app-panel {
-    display: none;
-    /* Add your existing styles for app panels */
+.shop-item button:hover {
+  background-color: #0056b3;
 }
 
+/* Additional styles for better text presentation */
+.shop-item .item-details {
+  flex-grow: 1;
+}
+
+.shop-item .item-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.shop-item .item-description {
+  font-size: 14px;
+  color: #777;
+}
+
+/* Maximized panel styles */
 .app-panel.maximized {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    /* Add additional styles for maximized state if needed */
-}
-/* Add this to your styles.css */
-.app-bar .app-icon i {
-    font-size: 1.5em; /* Increase the size of the icons */
-}
-
-.shop-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.shop-item i {
-    margin-right: 10px;
-}
-
-.shop-item button {
-    margin-left: auto;
-}
-
-.app-panel {
-    display: none;
-    /* Add your existing styles for app panels */
-}
-
-.app-panel.maximized {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    /* Add additional styles for maximized state if needed */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
 }

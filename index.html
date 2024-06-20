@@ -9,32 +9,36 @@
 </head>
 <body>
 
-<div id="app-bar" class="app-bar">
-    <div class="app-icons">
-        <div class="app-icon" onclick="openApp('Browser')">
-            <i class="fas fa-globe"></i>
+    <div id="app-bar" class="app-bar">
+        <div class="app-icons">
+            <div class="app-icon" onclick="openApp('Browser')">
+                <i class="fas fa-globe"></i>
+            </div>
+            <div class="app-icon" onclick="openApp('Apps')">
+                <i class="fas fa-th-large"></i>
+            </div>
+            <div class="app-icon" onclick="openApp('Terminal')">
+                <i class="fas fa-terminal"></i>
+            </div>
+            <div class="app-icon" onclick="openSettings()">
+                <i class="fas fa-cog"></i>
+            </div>
+            <div id="game-icon" class="app-icon" style="display:none;" onclick="openApp('Game')">
+                <i class="fas fa-gamepad"></i>
+            </div>
+            <div class="app-icon" onclick="openApp('Shop')">
+                <i class="fas fa-shopping-bag"></i>
+            </div>
+            <div id="messaging-icon" class="app-icon" style="display:none;" onclick="openApp('Messaging')">
+                <i class="fas fa-comment-alt"></i>
+            </div>
         </div>
-        <div class="app-icon" onclick="openApp('Apps')">
-            <i class="fas fa-th-large"></i>
-        </div>
-        <div class="app-icon" onclick="openApp('Terminal')">
-            <i class="fas fa-terminal"></i>
-        </div>
-        <div class="app-icon" onclick="openSettings()">
-            <i class="fas fa-cog"></i>
-        </div>
-        <div id="game-icon" class="app-icon" style="display:none;" onclick="openApp('Game')">
-            <i class="fas fa-gamepad"></i>
-        </div>
-        <div class="app-icon" onclick="openApp('Shop')">
-            <i class="fas fa-shopping-bag"></i>
+        <div class="app-info">
+            <span id="battery-status"><i class="fas fa-battery-half"></i> --%</span>
+            <span id="la-time"></span>
         </div>
     </div>
-    <div class="app-info">
-        <span id="battery-status"><i class="fas fa-battery-half"></i> --%</span>
-        <span id="la-time"></span>
-    </div>
-</div>
+
 
 <div id="browser-panel" class="app-panel">
     <div class="panel-header">
@@ -62,6 +66,11 @@
             <i class="fas fa-gamepad"></i>
             <span>Tunnel Games</span>
             <button onclick="installGame()">Install</button>
+        </div>
+        <div class="shop-item">
+            <i class="fas fa-comment-alt"></i>
+            <span>Messaging App</span>
+            <button onclick="installMessagingApp()">Install</button>
         </div>
     </div>
 </div>

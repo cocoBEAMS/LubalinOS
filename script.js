@@ -619,3 +619,88 @@ document.addEventListener('DOMContentLoaded', () => {
     // Example initialization actions
     // openApp('Browser'); // Uncomment to open the Browser panel by default
 });
+function changeWallpaper(event) {
+    const wallpaperType = document.querySelector('input[name="wallpaperType"]:checked').id;
+
+    if (wallpaperType === 'uploadImage') {
+        const file = document.getElementById('wallpaper').files[0];
+        if (!file) {
+            alert('Please upload an image.');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.body.style.backgroundImage = `url(${e.target.result})`;
+            document.body.style.backgroundSize = 'cover';
+            localStorage.setItem('wallpaper', e.target.result); // Save to localStorage
+        };
+        reader.onerror = function() {
+            alert('Error reading the file.');
+        };
+        reader.readAsDataURL(file);
+    } else if (wallpaperType === 'gradient') {
+        const gradientType = document.getElementById('gradientType').value;
+        const color1 = document.getElementById('color1').value;
+        const color2 = document.getElementById('color2').value;
+        document.body.style.backgroundImage = `${gradientType}(${color1}, ${color2})`;
+        localStorage.setItem('wallpaper', `${gradientType}(${color1}, ${color2})`); // Save to localStorage
+    }
+}
+function changeWallpaper(event) {
+    const wallpaperType = document.querySelector('input[name="wallpaperType"]:checked').id;
+
+    if (wallpaperType === 'uploadImage') {
+        const file = document.getElementById('wallpaper').files[0];
+        if (!file) {
+            alert('Please upload an image.');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.body.style.backgroundImage = `url(${e.target.result})`;
+            document.body.style.backgroundSize = 'cover';
+            localStorage.setItem('wallpaper', e.target.result); // Save to localStorage
+        };
+        reader.onerror = function() {
+            alert('Error reading the file.');
+        };
+        reader.readAsDataURL(file);
+    } else if (wallpaperType === 'gradient') {
+        const gradientType = document.getElementById('gradientType').value;
+        const color1 = document.getElementById('color1').value;
+        const color2 = document.getElementById('color2').value;
+        document.body.style.backgroundImage = `${gradientType}(${color1}, ${color2})`;
+        localStorage.setItem('wallpaper', `${gradientType}(${color1}, ${color2})`); // Save to localStorage
+    }
+}
+function loadSettings() {
+    const wallpaperType = localStorage.getItem('wallpaperType');
+    const wallpaper = localStorage.getItem('wallpaper');
+    const timezone = localStorage.getItem('timezone');
+
+    if (wallpaperType === 'uploadImage' && wallpaper) {
+        document.body.style.backgroundImage = `url(${wallpaper})`;
+        document.body.style.backgroundSize = 'cover';
+        document.getElementById('uploadImage').checked = true;
+    } else if (wallpaperType === 'gradient' && wallpaper) {
+        document.body.style.backgroundImage = wallpaper;
+        document.getElementById('gradient').checked = true;
+        // Assuming the saved gradient is in the format: "linear-gradient(#color1, #color2)"
+        const colors = wallpaper.match(/#[0-9A-Fa-f]{6}/g);
+        if (colors) {
+            document.getElementById('color1').value = colors[0];
+            document.getElementById('color2').value = colors[1];
+        }
+    }
+
+    if (timezone) {
+        document.getElementById('timezone').value = timezone;
+        changeTimezone(); // Apply saved timezone
+    }
+}
+
+window.onload = function() {
+    loadSettings();
+};
