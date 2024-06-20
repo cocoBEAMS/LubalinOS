@@ -162,3 +162,18 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+/* styles.css */
+.app-panel {
+    display: none;
+    /* Add your existing styles for app panels */
+}
+
+.app-panel.maximized {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    /* Add additional styles for maximized state if needed */
+}

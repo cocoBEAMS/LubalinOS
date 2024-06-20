@@ -23,6 +23,9 @@
         <div class="app-icon" onclick="openSettings()">
             <i class="fas fa-cog"></i>
         </div>
+        <div class="app-icon" onclick="openApp('Shop')">
+            <i class="fas fa-shopping-bag"></i>
+        </div>
     </div>
     <div class="app-info">
         <span id="battery-status"><i class="fas fa-battery-half"></i> --%</span>
@@ -40,6 +43,18 @@
         </div>
     </div>
     <iframe id="browser-frame" class="panel-content" src="about:blank"></iframe>
+</div>
+
+<div id="shop-panel" class="app-panel">
+    <div class="panel-header">
+        Shop
+        <div class="panel-controls">
+            <span class="panel-control" onclick="maximizePanel('shop-panel')">Maximize</span>
+            <span class="panel-control" onclick="minimizePanel('shop-panel')">Minimize</span>
+            <span class="panel-control" onclick="closePanel('shop-panel')">Close</span>
+        </div>
+    </div>
+    <iframe id="shop-frame" class="panel-content" src="about:blank"></iframe>
 </div>
 
 <div id="terminal-panel" class="app-panel">

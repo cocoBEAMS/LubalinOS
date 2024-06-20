@@ -391,3 +391,84 @@ document.addEventListener("DOMContentLoaded", function() {
     // Other app icons click event listeners...
 
 });
+// Function to open the app panels
+function openApp(appName) {
+    // Close all panels first
+    const panels = document.querySelectorAll('.app-panel');
+    panels.forEach(panel => {
+        panel.style.display = 'none';
+    });
+
+    // Open the specific app panel
+    const panel = document.getElementById(`${appName.toLowerCase()}-panel`);
+    if (panel) {
+        panel.style.display = 'block';
+    }
+}
+
+// Functions for panel controls (maximize, minimize, close)
+function maximizePanel(panelId) {
+    const panel = document.getElementById(panelId);
+    if (panel) {
+        panel.classList.toggle('maximized');
+    }
+}
+
+function minimizePanel(panelId) {
+    const panel = document.getElementById(panelId);
+    if (panel) {
+        panel.style.display = 'none';
+    }
+}
+
+function closePanel(panelId) {
+    const panel = document.getElementById(panelId);
+    if (panel) {
+        panel.style.display = 'none';
+    }
+}
+
+// Function to open settings panel
+function openSettings() {
+    const settingsPanel = document.getElementById('settings-panel');
+    if (settingsPanel) {
+        settingsPanel.style.display = 'block';
+    }
+}
+
+// Function to close settings panel
+function closeSettings() {
+    const settingsPanel = document.getElementById('settings-panel');
+    if (settingsPanel) {
+        settingsPanel.style.display = 'none';
+    }
+}
+
+// Function to close popup
+function closePopup() {
+    const popup = document.getElementById('popup');
+    if (popup) {
+        popup.style.display = 'none';
+    }
+}
+
+// Function to change wallpaper
+function changeWallpaper(event) {
+    // Implement your change wallpaper logic here
+}
+
+// Function to change timezone
+function changeTimezone(event) {
+    // Implement your change timezone logic here
+}
+
+// Function to save settings
+function saveSettings() {
+    // Implement your save settings logic here
+}
+
+// Example initialization code if needed
+document.addEventListener('DOMContentLoaded', () => {
+    // Example initialization actions
+    // openApp('Browser'); // Uncomment to open the Browser panel by default
+});
