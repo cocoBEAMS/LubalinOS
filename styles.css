@@ -177,3 +177,65 @@ body {
     z-index: 1000;
     /* Add additional styles for maximized state if needed */
 }
+/* Add this to your styles.css */
+.shop-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.shop-item i {
+    margin-right: 10px;
+}
+
+.shop-item button {
+    margin-left: auto;
+}
+
+.app-panel {
+    display: none;
+    /* Add your existing styles for app panels */
+}
+
+.app-panel.maximized {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    /* Add additional styles for maximized state if needed */
+}
+/* Add this to your styles.css */
+.app-bar .app-icon i {
+    font-size: 1.5em; /* Increase the size of the icons */
+}
+
+.shop-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.shop-item i {
+    margin-right: 10px;
+}
+
+.shop-item button {
+    margin-left: auto;
+}
+
+.app-panel {
+    display: none;
+    /* Add your existing styles for app panels */
+}
+
+.app-panel.maximized {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    /* Add additional styles for maximized state if needed */
+}

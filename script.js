@@ -472,3 +472,150 @@ document.addEventListener('DOMContentLoaded', () => {
     // Example initialization actions
     // openApp('Browser'); // Uncomment to open the Browser panel by default
 });
+// Add this to your script.js file
+
+// Function to open the app panels
+function openApp(appName) {
+    // Close all panels first
+    const panels = document.querySelectorAll('.app-panel');
+    panels.forEach(panel => {
+        panel.style.display = 'none';
+    });
+
+    // Open the specific app panel
+    const panel = document.getElementById(`${appName.toLowerCase()}-panel`);
+    if (panel) {
+        panel.style.display = 'block';
+    }
+}
+
+// Function to install the game
+function installGame() {
+    // Show the game icon in the app bar
+    const gameIcon = document.getElementById('game-icon');
+    if (gameIcon) {
+        gameIcon.style.display = 'block';
+    }
+}
+
+// Functions for panel controls (maximize, minimize, close)
+function maximizePanel(panelId) {
+    const panel = document.getElementById(panelId);
+    if (panel) {
+        panel.classList.toggle('maximized');
+    }
+}
+
+function minimizePanel(panelId) {
+    const panel = document.getElementById(panelId);
+    if (panel) {
+        panel.style.display = 'none';
+    }
+}
+
+function closePanel(panelId) {
+    const panel = document.getElementById(panelId);
+    if (panel) {
+        panel.style.display = 'none';
+    }
+}
+
+// Function to open settings panel
+function openSettings() {
+    const settingsPanel = document.getElementById('settings-panel');
+    if (settingsPanel) {
+        settingsPanel.style.display = 'block';
+    }
+}
+
+// Function to close settings panel
+function closeSettings() {
+    const settingsPanel = document.getElementById('settings-panel');
+    if (settingsPanel) {
+        settingsPanel.style.display = 'none';
+    }
+}
+
+// Function to close popup
+function closePopup() {
+    const popup = document.getElementById('popup');
+    if (popup) {
+        popup.style.display = 'none';
+    }
+}
+
+// Function to change wallpaper
+function changeWallpaper(event) {
+    // Implement your change wallpaper logic here
+}
+
+// Function to change timezone
+function changeTimezone(event) {
+    // Implement your change timezone logic here
+}
+
+// Function to save settings
+function saveSettings() {
+    // Implement your save settings logic here
+}
+
+// Example initialization code if needed
+document.addEventListener('DOMContentLoaded', () => {
+    // Example initialization actions
+    // openApp('Browser'); // Uncomment to open the Browser panel by default
+});
+// Function to open the app panels
+function openApp(appName) {
+    // Close all panels first
+    const panels = document.querySelectorAll('.app-panel');
+    panels.forEach(panel => {
+        panel.style.display = 'none';
+    });
+
+    // Open the specific app panel
+    const panel = document.getElementById(`${appName.toLowerCase()}-panel`);
+    if (panel) {
+        panel.style.display = 'block';
+    }
+}
+
+// Function to install the game
+function installGame() {
+    // Show the game icon in the app bar
+    const gameIcon = document.getElementById('game-icon');
+    if (gameIcon) {
+        gameIcon.style.display = 'block';
+    }
+
+    // Save the installed state to localStorage
+    saveInstalledApp('game-installed');
+}
+
+// Function to save installed apps to localStorage
+function saveInstalledApp(appKey) {
+    let installedApps = JSON.parse(localStorage.getItem('installed-apps')) || [];
+    if (!installedApps.includes(appKey)) {
+        installedApps.push(appKey);
+        localStorage.setItem('installed-apps', JSON.stringify(installedApps));
+    }
+}
+
+// Function to load installed apps from localStorage
+function loadInstalledApps() {
+    let installedApps = JSON.parse(localStorage.getItem('installed-apps')) || [];
+    installedApps.forEach(appKey => {
+        if (appKey === 'game-installed') {
+            const gameIcon = document.getElementById('game-icon');
+            if (gameIcon) {
+                gameIcon.style.display = 'block';
+            }
+        }
+    });
+}
+
+// Example initialization code if needed
+document.addEventListener('DOMContentLoaded', () => {
+    loadInstalledApps();
+    // Example initialization actions
+    // openApp('Browser'); // Uncomment to open the Browser panel by default
+});

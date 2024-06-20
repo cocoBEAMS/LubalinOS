@@ -23,6 +23,9 @@
         <div class="app-icon" onclick="openSettings()">
             <i class="fas fa-cog"></i>
         </div>
+        <div id="game-icon" class="app-icon" style="display:none;" onclick="openApp('Game')">
+            <i class="fas fa-gamepad"></i>
+        </div>
         <div class="app-icon" onclick="openApp('Shop')">
             <i class="fas fa-shopping-bag"></i>
         </div>
@@ -54,7 +57,25 @@
             <span class="panel-control" onclick="closePanel('shop-panel')">Close</span>
         </div>
     </div>
-    <iframe id="shop-frame" class="panel-content" src="about:blank"></iframe>
+    <div class="panel-content">
+        <div class="shop-item">
+            <i class="fas fa-gamepad"></i>
+            <span>Tunnel Games</span>
+            <button onclick="installGame()">Install</button>
+        </div>
+    </div>
+</div>
+
+<div id="game-panel" class="app-panel">
+    <div class="panel-header">
+        Tunnel Games
+        <div class="panel-controls">
+            <span class="panel-control" onclick="maximizePanel('game-panel')">Maximize</span>
+            <span class="panel-control" onclick="minimizePanel('game-panel')">Minimize</span>
+            <span class="panel-control" onclick="closePanel('game-panel')">Close</span>
+        </div>
+    </div>
+    <iframe id="game-frame" class="panel-content" src="https://hexagon-tan.vercel.app"></iframe>
 </div>
 
 <div id="terminal-panel" class="app-panel">

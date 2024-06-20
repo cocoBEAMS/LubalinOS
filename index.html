@@ -3,50 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to LubalinOS</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            max-width: 600px;
-            margin: 100px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #666;
-            line-height: 1.6;
-        }
-        .launch-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: #007bff;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-        .launch-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <title>LubalinOS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to LubalinOS</h1>
-        <p>The OS in your browser! Sleek UI interface, and fast preformance! Now, What are you waiting for? Launch LubalinOS!</p>
-        <a href="main.html" class="launch-button">Launch LubalinOS</a>
+
+<div id="app-bar" class="app-bar">
+    <div class="app-icons">
+        <div class="app-icon" onclick="openApp('Browser')">
+            <i class="fas fa-globe"></i>
+        </div>
+        <div class="app-icon" onclick="openApp('Apps')">
+            <i class="fas fa-th-large"></i>
+        </div>
+        <div class="app-icon" onclick="openApp('Terminal')">
+            <i class="fas fa-terminal"></i>
+        </div>
+        <div class="app-icon" onclick="openSettings()">
+            <i class="fas fa-cog"></i>
+        </div>
+        <div id="game-icon" class="app-icon" style="display:none;" onclick="openApp('Game')">
+            <i class="fas fa-gamepad"></i>
+        </div>
+        <div class="app-icon" onclick="openApp('Shop')">
+            <i class="fas fa-shopping-bag"></i>
+        </div>
     </div>
-</body>
-</html>
+    <div class="app-info">
+        <span id="battery-status"><i class="fas fa-battery-half"></i> --%</span>
+        <span id="la-time"></span>
+    </div>
+</div>
+
+<div id="browser-panel" class="app-panel">
+    <div class="panel-header">
+        Browser
+        <div class="panel-controls">
+            <span class="panel-control" onclick="maximizePanel('browser-panel')">Maximize</span>
+            <span class="panel-control" onclick="minimizePanel('browser-panel')">Minimize</span>
+            <span class="panel-control" onclick="closePanel('browser-panel')">Close</span>
+        </div>
+    </div>
+    <iframe id="browser-frame" class="panel-content" src="about:blank"></iframe>
+</div>
+
+<div id="shop-panel" class="app-panel">
+    <div class="panel-header">
+        Shop
+        <div class="panel-controls">
+            <span class="panel-control" onclick="maximizePanel('shop-panel')">Maximize</span>
+            <span class="panel-control" onclick="minimizePanel('shop-panel')">Minimize</span>
+            <span class="panel-control" onclick="closePanel('shop-panel')">Close</span>
+        </div>
+    </div>
+    <div class="panel-content">
+        <div class="shop-item">
+            <i class="fas fa-gamepad"></i>
+            <span>Tunnel Games</span>
+            <button onclick="installGame()">Install</button>
+        </div>
+    </div>
+</div>
+
+<div id="game-panel" class="app-panel">
+    <div class="panel-header">
+        Tunnel Games
+        <div class="panel-controls">
+            <span class="panel-control" onclick="maximizePanel('game-panel')">Maximize</span>
+            <span class="panel-control" onclick="minimizePanel('game-panel')">Minimize</span>
+            <span class="panel-control" onclick="closePanel('game-panel')">Close</span>
+        </div>
+    </div>
+    <iframe id="game-frame" class="panel-content" src="about:blank"></iframe>
+</div>
+
+<div id="terminal-panel" class="app-panel">
+    <div class="panel-header">
+        Terminal
+        <div class="panel-controls">
+            <span class="panel-control" onclick="closePanel('terminal-panel')">Close</span>
+        </div>
+    </div>
+    <div class="panel-content">
+        <div class="terminal">
+            <div class="terminal-header">Terminal</div>
+            <div class="terminal-body" id="terminal-body">
+                <p>Welcome to the terminal!</p>
+                <p>Type 'help' to see available commands.</p>
+            </div>
+            <div class="terminal-input">
+                <input type="text" id="terminal-input" autofocus>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="settings-panel" class="settings-panel">
+    <h2>Settings</h2>
+    <div class="setting-item">
+        <label>Change Wallpaper:</label>
+        <div>
+            <input type="radio" id="uploadImage" name="wallpaperType" checked>
+            <label for="uploadImage">Upload Image</label>
+            <input type="file" id="wallpaper" accept="image/*" onchange="changeWallpaper(event)">
+        </div>
+        <div>
+            <input type="radio" id="gradient" name="wallpaperType">
+            <label for="gradient">Gradient</label>
+            <select id="gradientType" onchange="changeWallpaper(event)">
+                <option value="linear-gradient">Linear Gradient</option>
+                <option value="radial-gradient">Radial Gradient</option>
+            </select>
+            <input type="color" id="color1" onchange="changeWallpaper(event)" value="#FF5733">
+            <input type="color" id="color2" onchange="changeWallpaper(event)" value="#FFF">
+        </div>
+    </div>
+    <div class="setting-item">
+        <label for="timezone">Change Timezone:</label>
+        <select id="timezone" onchange="changeTimezone(event)">
+            <option value="America/Los_Angeles">Los Angeles</option>
+            <option value="America/New_York">New York</option>
+            <option value="Europe/London">London</option>
