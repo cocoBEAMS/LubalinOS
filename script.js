@@ -728,7 +728,7 @@ function installTextBubbleApp() {
     openApp('TextBubble');
 
     // Optionally, provide user feedback
-    alert('Text Bubble app installed!');
+    alert('Lubalin Chat has been installed!');
 }
 document.addEventListener('DOMContentLoaded', function() {
     checkInstalledApps();
@@ -744,7 +744,7 @@ function installTextBubbleApp() {
     localStorage.setItem('textBubbleInstalled', 'true');
     document.getElementById('text-bubble-icon').style.display = 'block';
     openApp('TextBubble');
-    alert('Text Bubble app installed!');
+    alert('Lubalin Chat has been successfully installed!');
 }
 
 function openApp(appName) {
@@ -798,7 +798,7 @@ function installTextBubbleApp() {
     localStorage.setItem('textBubbleInstalled', 'true');
     document.getElementById('text-bubble-icon').style.display = 'block';
     openApp('TextBubble');
-    alert('Text Bubble app installed!');
+    alert('Lubalin chat has been successfully installed!');
 }
 
 function openApp(appName) {
