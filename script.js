@@ -704,3 +704,137 @@ function loadSettings() {
 window.onload = function() {
     loadSettings();
 };
+// Function to check if an app is installed and update UI
+function checkInstalledApps() {
+    if (localStorage.getItem('textBubbleInstalled') === 'true') {
+        document.getElementById('text-bubble-icon').style.display = 'block';
+    }
+}
+
+// Check installed apps on page load
+document.addEventListener('DOMContentLoaded', function() {
+    checkInstalledApps();
+});
+
+// Function to install Text Bubble app
+function installTextBubbleApp() {
+    // Set the app as installed in localStorage
+    localStorage.setItem('textBubbleInstalled', 'true');
+
+    // Show the app icon in the app bar
+    document.getElementById('text-bubble-icon').style.display = 'block';
+
+    // Optionally, open the app panel immediately after installation
+    openApp('TextBubble');
+
+    // Optionally, provide user feedback
+    alert('Text Bubble app installed!');
+}
+document.addEventListener('DOMContentLoaded', function() {
+    checkInstalledApps();
+});
+
+function checkInstalledApps() {
+    if (localStorage.getItem('textBubbleInstalled') === 'true') {
+        document.getElementById('text-bubble-icon').style.display = 'block';
+    }
+}
+
+function installTextBubbleApp() {
+    localStorage.setItem('textBubbleInstalled', 'true');
+    document.getElementById('text-bubble-icon').style.display = 'block';
+    openApp('TextBubble');
+    alert('Text Bubble app installed!');
+}
+
+function openApp(appName) {
+    const appPanels = document.querySelectorAll('.app-panel');
+    appPanels.forEach(panel => panel.style.display = 'none');
+
+    switch (appName) {
+        case 'Browser':
+            document.getElementById('browser-panel').style.display = 'block';
+            break;
+        case 'Shop':
+            document.getElementById('shop-panel').style.display = 'block';
+            break;
+        case 'Game':
+            document.getElementById('game-panel').style.display = 'block';
+            break;
+        case 'Terminal':
+            document.getElementById('terminal-panel').style.display = 'block';
+            break;
+        case 'TextBubble':
+            document.getElementById('text-bubble-panel').style.display = 'block';
+            break;
+        default:
+            break;
+    }
+}
+
+function maximizePanel(panelId) {
+    document.getElementById(panelId).classList.add('maximized');
+}
+
+function minimizePanel(panelId) {
+    document.getElementById(panelId).classList.remove('maximized');
+    document.getElementById(panelId).style.display = 'none';
+}
+
+function closePanel(panelId) {
+    document.getElementById(panelId).style.display = 'none';
+}
+document.addEventListener('DOMContentLoaded', function() {
+    checkInstalledApps();
+});
+
+function checkInstalledApps() {
+    if (localStorage.getItem('textBubbleInstalled') === 'true') {
+        document.getElementById('text-bubble-icon').style.display = 'block';
+    }
+}
+
+function installTextBubbleApp() {
+    localStorage.setItem('textBubbleInstalled', 'true');
+    document.getElementById('text-bubble-icon').style.display = 'block';
+    openApp('TextBubble');
+    alert('Text Bubble app installed!');
+}
+
+function openApp(appName) {
+    const appPanels = document.querySelectorAll('.app-panel');
+    appPanels.forEach(panel => panel.style.display = 'none');
+
+    switch (appName) {
+        case 'Browser':
+            document.getElementById('browser-panel').style.display = 'block';
+            break;
+        case 'Shop':
+            document.getElementById('shop-panel').style.display = 'block';
+            break;
+        case 'Game':
+            document.getElementById('game-panel').style.display = 'block';
+            break;
+        case 'Terminal':
+            document.getElementById('terminal-panel').style.display = 'block';
+            break;
+        case 'TextBubble':
+            document.getElementById('text-bubble-panel').style.display = 'block';
+            break;
+        default:
+            break;
+    }
+}
+
+function maximizePanel(panelId) {
+    document.getElementById(panelId).classList.add('maximized');
+}
+
+function minimizePanel(panelId) {
+    document.getElementById(panelId).classList.remove('maximized');
+    document.getElementById(panelId).style.display = 'none';
+}
+
+function closePanel(panelId) {
+    document.getElementById(panelId).style.display = 'none';
+}
