@@ -75,7 +75,7 @@
             <span class="panel-control" onclick="closePanel('game-panel')">Close</span>
         </div>
     </div>
-    <iframe id="game-frame" class="panel-content" src="about:blank"></iframe>
+    <iframe id="game-frame" class="panel-content" src="https://hexagon-tan.vercel.app"></iframe>
 </div>
 
 <div id="terminal-panel" class="app-panel">
@@ -125,3 +125,21 @@
             <option value="America/Los_Angeles">Los Angeles</option>
             <option value="America/New_York">New York</option>
             <option value="Europe/London">London</option>
+            <option value="Asia/Tokyo">Tokyo</option>
+        </select>
+        <button onclick="saveSettings()">Save Settings</button>
+    </div>
+    <button onclick="closeSettings()">Close</button>
+</div>
+
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2>Welcome to Lubalin!</h2>
+        <p>The fast, reliable OS. Lubalin is in BETA! It's still being updated.</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
