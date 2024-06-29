@@ -1,0 +1,42 @@
+body {
+  background-color: #1e1e1e;
+  color: #00ff00;
+  font-family: 'Fira Code', monospace;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.terminal {
+  background-color: #000;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 800px;
+  padding: 20px;
+
+}
+
+.output {
+  height: 400px;
+  overflow-y: auto;
+}
+
+.input-line {
+  display: flex;
+  align-items: center;
+}
+
+.prompt {
+  margin-right: 10px;
+}
+
+.input {
+  background: none;
+  border: none;
+  outline: none;
+  color: inherit;
+  font: inherit;
+  flex: 1;
+}

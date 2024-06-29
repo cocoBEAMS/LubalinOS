@@ -90,21 +90,12 @@
         <div class="panel-header">
             Terminal
             <div class="panel-controls">
+                <span class="panel-control" onclick="maximizePanel('terminal-panel')">Maximize</span>
+                <span class="panel-control" onclick="minimizePanel('terminal-panel')">Minimize</span>
                 <span class="panel-control" onclick="closePanel('terminal-panel')">Close</span>
             </div>
         </div>
-        <div class="panel-content">
-            <div class="terminal">
-                <div class="terminal-header">Terminal</div>
-                <div class="terminal-body" id="terminal-body">
-                    <p>Welcome to the terminal!</p>
-                    <p>Type 'help' to see available commands.</p>
-                </div>
-                <div class="terminal-input">
-                    <input type="text" id="terminal-input" autofocus>
-                </div>
-            </div>
-        </div>
+        <iframe id="terminal-frame" class="panel-content" src="terminal.html"></iframe>
     </div>
 
     <div id="text-bubble-panel" class="app-panel">
